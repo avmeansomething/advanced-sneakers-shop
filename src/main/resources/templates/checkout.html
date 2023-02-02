@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:insert="blocks/styles :: styles"></div>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Заказ</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="index.html">Главная<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="single-product.html">Оформление заказа</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner Area -->
+
+<!--================Checkout Area =================-->
+<section class="checkout_area section_gap">
+    <div class="container">
+        <div class="billing_details">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h3>Детали заказа</h3>
+                    <form class="row contact_form" action="/neworder" method="post" novalidate="novalidate">
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="first" name="name">
+                            <span class="placeholder" data-placeholder="Имя"></span>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="last" name="surname">
+                            <span class="placeholder" data-placeholder="Фамилия"></span>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="number" name="phone">
+                            <span class="placeholder" data-placeholder="Телефон"></span>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="email" name="email">
+                            <span class="placeholder" data-placeholder="Email"></span>
+                        </div>
+                        <div class="col-md-12 form-group p_star">
+                            <select class="country_select">
+                                <option value="1">Беларусь</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 form-group p_star">
+                            <input type="text" class="form-control" id="city" name="adress">
+                            <span class="placeholder" data-placeholder="Адрес для доставки"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="zip" name="zipcode" placeholder="Почтовый индекс">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="prim" name="comment" placeholder="Примечание для заказа">
+                        </div>
+                        <input type="submit" class="primary-btn" value="Оплатить">
+                    </form>
+                </div>
+                <div class="col-lg-4">
+                    <div class="order_box">
+                        <h2>Твой заказ</h2>
+                        <ul class="list">
+                            <li><a href="#">Заказ</a></li>
+                            <li th:each="sneaker : ${sneakers}"><a th:href="'/sneakers/' + 'single-product' + '/' + ${sneaker.id}" th:text="${sneaker.brand}"></a><span th:text="${sneaker.cost} + ' Br'" class="last"></span></li>
+                            <li th:each="accs : ${accessories}"><a th:href="'/accessories/' + 'single-accessory' + '/' + ${accs.id}" th:text="${accs.name}"></a><span th:text="${accs.cost} + ' Br'" class="last"></span></li>
+                        </ul>
+                        <ul class="list list_2">
+                            <li><a href="#">Итого <span th:text="${accscost + costsneakers} + ' Br'"></span></a></li>
+                            <li><a href="#">Доставка <span>бесплатная</span></a></li>
+                        </ul>
+                        <div class="payment_item active">
+                            <div class="radion_btn">
+                                <input type="radio" id="f-option6" name="selector">
+                                <label for="f-option6">Банковская карта</label>
+                                <img src="img/product/card.jpg" alt="">
+                                <div class="check"></div>
+                            </div>
+                            <p>Оплата через перевод. При оплате проверяйте корректный ввод своих данных.</p>
+                        </div>
+                        <div class="creat_account">
+                            <input type="checkbox" id="f-option4" name="selector">
+                            <label for="f-option4">Я ознакомлен с правилами политики сервиса </label>
+                            <a href="#">правила и политика*</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer th:insert="blocks/footer :: footer"></footer>
+
+<div th:insert="blocks/jsscripts :: scripts"></div>
+
+</body>
+</html>

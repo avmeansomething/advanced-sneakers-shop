@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:insert="blocks/styles :: styles"></div>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Добавьте новую пару обуви</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="single-product">Надеюсь это будет что-то эксклюзивное!</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="login_box_area section_gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="login_form_inner">
+                    <h3>А тут можно добавить фото кроссовок!</h3>
+                    <form class="row login_form" action="/sneaker-pic/add" method="post" novalidate="novalidate">
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="name" name="url" placeholder="Photo URL" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Photo URL'">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="name" name="sneakerid" placeholder="ID Кроссовок" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ID Кроссовок'">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <button type="submit" value="submit" class="primary-btn">Добавить фото</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="login_form_inner">
+                    <h3>Новые кроссовки? Вау!</h3>
+                    <form class="row login_form" action="/sneakers/addnew" method="post" id="contactForm" novalidate="novalidate">
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="name" name="brand" placeholder="Модель" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Модель'">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="name" name="brand_name" placeholder="Бренд" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Бренд'">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="name" name="color" placeholder="Цвет" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Цвет'">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="name" name="cost" placeholder="Цена" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Цена'">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="name" name="description" placeholder="Описание" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Описание'">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="name" name="isnew" placeholder="Новинка" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Новинка'">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="name" name="istock" placeholder="В наличии?" onfocus="this.placeholder = ''" onblur="this.placeholder = 'В наличии?'">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="name" name="issale" placeholder="Скидка" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Скидка'">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="name" name="material" placeholder="Материал" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Материал'">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="name" name="pic" placeholder="Картинка" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Картинка'">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="name" name="sex" placeholder="Для кого" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Для кого'">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="name" name="sizes" placeholder="Размерный ряд" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Размерный ряд'">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="name" name="type" placeholder="Тип кроссовок" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Тип кроссовок'">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <button type="submit" value="submit" class="primary-btn">Добавить кроссовки</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer th:insert="blocks/footer :: footer"></footer>
+
+<div th:insert="blocks/jsscripts :: scripts"></div>
+
+</body>
+</html>

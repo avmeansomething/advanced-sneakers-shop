@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <div th:insert="blocks/styles :: styles"></div>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<section class="banner-area organic-breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+      <div class="col-first">
+        <h1>Подтверждение заказа</h1>
+        <nav class="d-flex align-items-center">
+          <a href="index.html">Главная<span class="lnr lnr-arrow-right"></span></a>
+          <a href="category.html">Подтверждение</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Banner Area -->
+
+<!--================Order Details Area =================-->
+<section class="order_details section_gap">
+  <div class="container">
+    <h3 class="title_confirmation">Спасибо за заказ. Оператор свяжется с вами для уточнения данных! Хорошего дня!</h3>
+    <div class="order_details_table">
+      <h2>Детали заказа</h2>
+      <div class="table-responsive">
+        <table class="table"  th:if="${countSneakers > 0}" >
+          <thead>
+          <tr>
+            <th scope="col">Заказ кроссовок</th>
+            <th scope="col"> </th>
+            <th scope="col">Пол</th>
+            <th scope="col">Цвет</th>
+            <th scope="col">Цена</th>
+          </tr>
+          </thead>
+          <tbody >
+          <tr th:each="sneaker : ${sneakers}">
+            <td>
+              <div class="media">
+                <div class="d-flex">
+                </div>
+                <div class="media-body">
+                  <h4 th:text="${sneaker.brand}"></h4>
+                </div>
+              </div>
+            </td>
+            <td></td>
+            <td>
+              <h5 th:text="${sneaker.sex}"></h5>
+            </td>
+            <td>
+              <h5 th:text="${sneaker.color}"></h5>
+            </td>
+            <td th:if="${sneaker.issale == 1}">
+              <h4 th:text="${sneaker.cost - discount * 40} +' Br'"  style="color: darkred;"></h4>
+              <h5 class="l-through" th:text="${sneaker.cost} +' Br'" style="color: gray;"></h5>
+            </td>
+            <td th:if="${sneaker.issale == 0}">
+              <h5 th:text="${sneaker.cost} +' Br'" ></h5>
+            </td>
+          </tr>
+          </tr>
+          </tbody>
+        </table>
+
+        <table class="table" th:if="${countAccs > 0}" >
+          <thead>
+          <tr>
+            <th scope="col">Заказ аксессуаров</th>
+            <th scope="col"> </th>
+            <th scope="col">Пол</th>
+            <th scope="col">Цвет</th>
+            <th scope="col">Цена</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="accs : ${accessories}">
+            <td>
+              <div class="media">
+                <div class="d-flex">
+                </div>
+                <div class="media-body">
+                  <h4 th:text="${accs.name}"></h4>
+                </div>
+              </div>
+            </td>
+            <td></td>
+            <td>
+              <h5 th:text="${accs.type}"></h5>
+            </td>
+            <td>
+              <h5 th:text="${accs.color}"></h5>
+            </td>
+            <td>
+              <h5 th:text="${accs.cost} +' Br'"></h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <table class="table">
+          <tr class="shipping_area">
+            <td>
+            </td>
+            <td>
+              <div class="shipping_box">
+
+              </div>
+            </td>
+            <td th:if="${discount > 0}">
+              <h4>Итого</h4>
+              <h4 class="l-through" th:text="'Со скидкой ' + ${accscost + (costsneakers - discount * 40)} + ' Br'" style="color: darkred;"></h4>
+              <h5 th:text="${accscost + costsneakers} + ' Br'" style="color: gray;"></h5>
+            </td>
+            <td th:if="${discount == 0}">
+              <h4>Итого</h4>
+              <h4 th:text="${accscost + costsneakers} + ' Br'"></h4>
+            </td>
+            <td>
+              <div class="checkout_btn_inner d-flex align-items-center">
+                <a class="gray_btn" href="/return">Заказать ещё</a>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+<footer th:insert="blocks/footer :: footer"></footer>
+
+<div th:insert="blocks/jsscripts :: scripts"></div>
+
+</body>
+</html>
