@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:insert="blocks/styles :: styles"></div>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Свяжитесь с нами</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="/">Главная<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="category.html">Контакты</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner Area -->
+
+<!--================Contact Area =================-->
+<section class="contact_area section_gap_bottom">
+    <div class="container">
+        <div id="mapBox" class="mapBox" data-lat="53.897462" data-lon="27.554372" data-zoom="13" data-info="город Минск, Республика Беларусь"
+             data-mlat="53.897462" data-mlon="27.554372">
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="contact_info">
+                    <div class="info_item">
+                        <i class="lnr lnr-home"></i>
+                        <h6>Минск, Республика Беларусь</h6>
+                        <p>пр-т Победителей</p>
+                    </div>
+                    <div class="info_item">
+                        <i class="lnr lnr-phone-handset"></i>
+                        <h6><a href="#">+375 (44) 512-14-14</a></h6>
+                        <p>Ежедневно с 9:00 до 20:00</p>
+                    </div>
+                    <div class="info_item">
+                        <i class="lnr lnr-envelope"></i>
+                        <h6><a href="#">support@advanceshop.by</a></h6>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <form class="row contact_form" action="/feedback/add" method="post" id="contactForm" novalidate="novalidate">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Ваше имя" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ваше имя'">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="subject" name="topic" placeholder="Тема обращения" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Тема обращения'">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <textarea class="form-control" name="text" id="message" rows="1" placeholder="Ваш текст обращения" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ваш текст обращения'"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-right">
+                        <button type="submit" value="submit" class="primary-btn">Отправить сообщение</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<footer th:insert="blocks/footer :: footer"></footer>
+<div th:insert="blocks/jsscripts :: scripts"></div>
+
+</body>
+</html>
