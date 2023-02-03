@@ -7,6 +7,8 @@ Online store designed to sell brand-new, stylish sneakers and accessories. The p
 
 🔧Java template-engine - Thymeleaf
 
+🔧Project management - Maven
+
 🔧API - Servlet, JPA, JSTL
 
 🔧Server - Apache Tomcat 9
