@@ -41,6 +41,8 @@ Online store designed to sell brand-new, stylish sneakers and accessories. The p
 
 🔧Rating
 
+🔧Users can give feedback
+
 **Using app after login into service:**
 
 **StartPage**
